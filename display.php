@@ -11,14 +11,12 @@
   if ($db_found) {
        $SQL="SELECT * FROM employee_details";
        $result=mysqli_query($db_handle,$SQL);
-     
-       while($db_field=mysqli_fetch_assoc($result)){
-           print $db_field['Id']."<BR>";
-           print $db_field['First_name']."<BR>";
-           print $db_field['Surname']."<BR>";
-           print $db_field['Designation']."<BR>";
-       }
        
+           while($db_field=mysqli_fetch_assoc($result)){
+           print "Id:".$db_field['Id']."&nbsp"."First Name:".$db_field['First_name']."   "."Surname:".$db_field['Surname']." "."Designation:".$db_field['Designation']."<BR>";
+           
+       
+}
 }
 else {
 

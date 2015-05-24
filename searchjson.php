@@ -11,13 +11,13 @@
   if($db_found){
      $SQL="SELECT * FROM employee_details WHERE Id=$_POST[Id]";
      $result=mysqli_query($db_handle,$SQL);
-     
+     $rows=array();
        while($db_field=mysqli_fetch_assoc($result)){
-           print "Id:".$db_field['Id']."<BR>";
-           print "First name:". $db_field['First_name']."<BR>";
-           print "Surname:".$db_field['Surname']."<BR>";
-           print "Designation:".$db_field['Designation']."<BR>";
+     
+          $rows['Id']=$db_field;
+           
        }
+      print json_encode($rows);
      $des="SELECT Designation FROM employee_details WHERE Id=$_POST[Id]";
      $result1=mysqli_query($db_handle,$des);
      while($db_field1=mysqli_fetch_assoc($result1)){
